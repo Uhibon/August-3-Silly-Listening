@@ -88,9 +88,14 @@
   const slideImg = document.getElementById("slide");
   const audio = document.getElementById("audio");
 
+  function pad(num) {
+    return num.toString().padStart(2, '0'); // "1" → "01"
+  }
+
   function showSlide(index) {
-    slideImg.src = (index < 10 ? "0" : "") + index + ".jpg"; // 01.jpg - 15.jpg
-    audio.src = "slide" + index + ".mp3"; // slide1.mp3 - slide15.mp3
+    const padded = pad(index);
+    slideImg.src = padded + ".jpg";         // 01.jpg - 15.jpg
+    audio.src = "slide" + padded + ".mp3";  // slide01.mp3 - slide15.mp3
   }
 
   function nextSlide() {
